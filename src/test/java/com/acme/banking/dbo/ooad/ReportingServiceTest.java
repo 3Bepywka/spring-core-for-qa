@@ -47,4 +47,28 @@ public class ReportingServiceTest {
                 .contains("100.0");
         //endregion
     }
+
+    @Test
+    public void shouldSetAccount() {
+        //region Given
+        Account stubAccount = mock(Account.class);
+        when(stubAccount.getAmount()).thenReturn(100.0);
+        when(stubAccount.getId()).thenReturn(1L);
+
+        AccountRepository stubRepo = mock(AccountRepository.class);
+        when(stubRepo.findById(1L)).thenReturn(stubAccount);
+
+        ReportingService sut = new ReportingService(stubRepo);
+        //endregion
+
+        //region When
+        sut.setAccounts(stubRepo);
+        //endregion
+
+        //region Then
+        assertThat(sut.reportForAccount(1L))
+                .contains("100")
+                .contains(String.valueOf(1L));
+        //endregion
+    }
 }
