@@ -9,7 +9,8 @@ import javax.persistence.EntityNotFoundException;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ReportingServiceTest {
 
@@ -32,7 +33,6 @@ public class ReportingServiceTest {
 
         AccountRepository stubRepo = mock(AccountRepository.class);
         when(stubRepo.findById(anyLong())).thenReturn(stubAccount);
-
         ReportingService sut = new ReportingService(stubRepo);
         //endregion
 
