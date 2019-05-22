@@ -2,11 +2,9 @@ package com.acme.banking.dbo.ooad;
 
 import com.acme.banking.dbo.ooad.domain.CheckingAccount;
 import com.acme.banking.dbo.ooad.domain.SavingAccount;
-import org.hibernate.annotations.Check;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
 public class AccountTest {
 
